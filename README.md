@@ -1,35 +1,55 @@
-# Aksara Documentation
+# AKSARA
+**Cognitive Language Model (CLM) for Bahasa Indonesia**
 
-## 1. Introduction
-Aksara is designed to facilitate ... [existing philosophical approach continued].
+> *"Kami tidak membangun model yang sekadar menebak token; kami membangun model yang memahami, menalar, dan menghasilkan."*
 
-## 2. Methodology
-A detailed explanation of the methodology used in our research ...
+## Status Rilis Publik
 
-### 2.1 Data Collection
-- Discuss the data sources used for model training.
-- Include considerations for data quality and quantity.
+Repositori ini adalah baseline publik yang sudah disanitasi:
+- hanya berisi allowlist file/folder aman
+- tidak menyertakan dataset internal
+- tidak menyertakan checkpoint atau artefak training
+- tidak menyertakan file audit/debug internal
 
-### 2.2 Model Development
-- Outline the process of model selection, tuning, and evaluation.
+## Apa itu CLM?
 
-## 3. Evaluation Metrics
-We employ various metrics to assess model performance:
-- **Accuracy**: Definition and calculation.
-- **Precision and Recall**: Importance of these metrics in context.
+**Cognitive Language Model (CLM)** adalah pendekatan model bahasa yang berfokus pada:
+- pemahaman konteks
+- penalaran struktural
+- grounding semantik
+- generasi terarah
+- bukan sekadar next-token prediction
 
-## 4. Reproducibility Steps
-To ensure that our experiments can be reproduced:
-1. List software and dependencies.
-2. Provide environment setup instructions.
-3. Include example scripts for running the analyses.
+AKSARA adalah implementasi CLM untuk bahasa Indonesia pada baseline publik ini.
 
-## 5. Architectural Details
-### 5.1 System Architecture
-- Discuss how the components interact within the Aksara ecosystem.
+## Cara Verifikasi Cepat
 
-### 5.2 Deployment Strategy
-- Include considerations on scalability and performance optimization.
+```bash
+pytest tests/test_framework_end_to_end.py -q
+pytest tests/test_large_evaluator_smoke.py -q
+pytest tests/test_framework_generation_reasoning.py -q
+pytest tests/test_public_generation_output.py -q
+```
 
-## 6. Conclusion
-This documentation aims to serve as a comprehensive guide for researchers, practitioners, and enthusiasts eager to utilize Aksara in their scientific endeavors.
+## Fokus Proyek
+
+AKSARA adalah pipeline CLM untuk bahasa Indonesia yang:
+- dapat dibuat sebagai model
+- dapat menghasilkan generasi interpretif
+- dapat melakukan reasoning berbasis struktur bahasa
+- mengutamakan pemahaman linguistik, bukan prediksi token ala Transformer/Mamba
+
+## Contoh Penggunaan
+
+```python
+from aksara.framework import AksaraFramework
+
+fw = AksaraFramework.dari_kbbi("kbbi_core_v2.json")
+state = fw.proses("Budi membeli beras di pasar.")
+print(state.ringkasan())
+print(state.jelaskan())
+```
+
+## Catatan Publik
+
+Semua file sensitif dan internal sudah dikeluarkan dari baseline publik.
