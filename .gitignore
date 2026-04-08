@@ -1,0 +1,38 @@
+# Internal data and training artifacts
+data/
+data-corpus/
+checkpoints/
+aksara_output/
+temp_large_eval*.json
+debug.log
+*.log
+
+# Python cache / env
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Local IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Internal-only working files
+_inspect_kbbi.py
+_test_python.py
+AUDIT_REPORT.md
+TODO.md
+bsu.py
+correctness.py
+meb.py
+
+# Large or sensitive source assets not intended for public release
+KAMUS-BESAR-BAHASA-INDONESIA.pdf
+dictionary_JSON.json
+dictionary_MARKDOWN.md
+kbbi_core_fase1_AB.json
+kbbi_core_v2_backup.json
+kbbi_true_clean_production_old.json
