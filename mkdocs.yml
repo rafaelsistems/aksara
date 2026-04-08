@@ -1,0 +1,14 @@
+site_name: Aksara Documentation
+
+nav:
+  - Getting Started:
+      - Introduction: index.md
+      - Installation: installation.md
+  - Documentation:
+      - API Reference: api_reference.md
+      - User Guide: user_guide.md
+  - Research:
+      - Papers: papers.md
+      - Projects: projects.md
+  - Contributing:
+      - Contribution Guide: contributing.md
